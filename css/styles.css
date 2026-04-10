@@ -97,6 +97,13 @@ body {
 
 .badge-stock { font-size:0.8rem; }
 
+.text-gradient {
+  background: linear-gradient(90deg, #0d6efd, #dc3545);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 
 
 .admin-card {

@@ -279,13 +279,18 @@ function addNewProduct(){
   const title = document.getElementById('new-title').value.trim();
   const price = parseInt(document.getElementById('new-price').value,10);
   const stock = parseInt(document.getElementById('new-stock').value,10) || 0;
+  const desc = document.getElementById('new-desc') ? document.getElementById('new-desc').value.trim() || 'No description' : 'No description';
   const image = document.getElementById('new-image').value || 'https://via.placeholder.com/600x400?text=No+Image';
   if(!title || isNaN(price)) return alert('Title and price required');
   const prods = loadProducts();
   const id = 'p' + Date.now();
-  prods.push({ id, title, price, image, desc:'No description', stock, sold:0 });
+  prods.push({ id, title, price, image, desc, stock, sold:0 });
   saveProducts(prods);
-  document.getElementById('new-title').value=''; document.getElementById('new-price').value=''; document.getElementById('new-stock').value=''; document.getElementById('new-image').value='';
+  document.getElementById('new-title').value = '';
+  document.getElementById('new-price').value = '';
+  document.getElementById('new-stock').value = '';
+  document.getElementById('new-image').value = '';
+  if(document.getElementById('new-desc')) document.getElementById('new-desc').value='';
   renderAdminProducts();
 }
 

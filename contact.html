@@ -26,11 +26,20 @@
       <div class="invalid-feedback">Please enter a message.</div>
     </div>
     <div class="col-12">
-      <button class="btn btn-primary">Send Message</button>
+      <button type="submit" class="btn btn-primary">Send Message</button>
       <p id="contact-msg" class="text-success mt-2"></p>
     </div>
   </form>
 </main>
 <script src="js/script.js"></script>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if(!this.checkValidity()) { this.classList.add('was-validated'); return; }
+    document.getElementById('contact-msg').textContent = 'Thank you! Your message has been received.';
+    this.reset();
+    this.classList.remove('was-validated');
+  });
+</script>
 </body>
 </html>
